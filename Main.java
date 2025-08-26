@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main { 
     // Owen and Haider's lab
@@ -24,7 +25,7 @@ public class Main {
     // this is a recursive function that will give us the permutations
     static void recurPermute(int index, ArrayList<Integer> Arr) {
 
-        if (Arr.size() == 0) {
+        if (Arr.isEmpty()) {
             System.err.println("String is empty ;(");
         }
         
@@ -50,4 +51,17 @@ public class Main {
         long t2 = System.currentTimeMillis();
         System.out.println(t2 - t1);
     }
+
+    // helper to collect permutations into a list for testing
+    static void collectPermutations(int index, ArrayList<Integer> Arr, List<List<Integer>> result) {
+    if (index == Arr.size()) {
+        result.add(new ArrayList<>(Arr));
+        return;
+    }
+    for (int i = index; i < Arr.size(); i++) {
+        swap(Arr, i, index);
+        collectPermutations(index + 1, Arr, result);
+        swap(Arr, i, index);
+    }
+}
 }
