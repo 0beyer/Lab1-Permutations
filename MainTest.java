@@ -1,6 +1,6 @@
-import java.util.Collections;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import java.util.*;
 
 public class MainTest {
@@ -29,9 +29,9 @@ public class MainTest {
         assertTrue(result.contains(Arrays.asList(1,2,3)));
     }
 
-    // @Test
-    // public void testN10() {
-    //     List<List<Integer>> result = getPermutations(10);
-    //     assertEquals(3628800, result.size());  // 10! = 3,628,800
-    // }
+    @Test
+    public void testN10() {
+        List<List<Integer>> result = getPermutations(10);
+        assertEquals(3628800, result.size());  // 10! = 3,628,800
+    }
 }
