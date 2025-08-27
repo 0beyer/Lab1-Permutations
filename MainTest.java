@@ -6,6 +6,7 @@ public class MainTest {
 
     // Helper to generate permutations as a list (instead of printing)
     private ArrayList<ArrayList<Integer>> getPermutations(int n) {
+
         ArrayList<Integer> arr = new ArrayList<Integer>();
             for (int i = 1; i < n + 1; i++) {
                 arr.add(i);
@@ -17,16 +18,17 @@ public class MainTest {
     }
 
     @Test
-    public void testN1() {
-        ArrayList<ArrayList<Integer>> result = getPermutations(1);
+    public void testN0() {
+        ArrayList<ArrayList<Integer>> result = getPermutations(0);
         assertEquals(1, result.size());  // only the empty permutation
-        assertTrue(result.contains(Arrays.asList(1)));
+        assertTrue(result.contains(Arrays.asList()));
     }
 
     @Test
     public void testN3() {
         ArrayList<ArrayList<Integer>> result = getPermutations(3);
         assertEquals(6, result.size());  // 3! = 6
+        assertNotEquals(7, result.size());
         assertTrue(result.contains(Arrays.asList(1,2,3)));
     }
 
