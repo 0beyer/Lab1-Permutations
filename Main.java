@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main { 
     // Owen and Haider's lab
@@ -53,15 +52,17 @@ public class Main {
     }
 
     // helper to collect permutations into a list for testing
-    static void collectPermutations(int index, ArrayList<Integer> Arr, List<List<Integer>> result) {
-    if (index == Arr.size()) {
-        result.add(new ArrayList<>(Arr));
-        return;
+    static void collectPermutations(int index, ArrayList<Integer> Arr, ArrayList<ArrayList<Integer>> result) {
+
+        if (index == Arr.size()) {
+            result.add(Arr);
+            return;
+        }
+
+        for (int i = index; i < Arr.size(); i++) {
+            swap(Arr, i, index);
+            collectPermutations(index + 1, Arr, result);
+            swap(Arr, i, index);
+        }
     }
-    for (int i = index; i < Arr.size(); i++) {
-        swap(Arr, i, index);
-        collectPermutations(index + 1, Arr, result);
-        swap(Arr, i, index);
-    }
-}
 }
